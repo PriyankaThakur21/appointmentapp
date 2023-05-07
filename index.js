@@ -9,6 +9,16 @@ function save(event){
     .catch((err)=>console.log(err))
     event.target.reset();
     }
+    window.addEventListener('DOMContentLoaded', ()=>{
+        axios.get('https://crudcrud.com/api/6ba832c5062341ccb09ae2b32fbc6c28/appointmentapp')
+        .then((resolve)=>{
+        for(let i in resolve.data){
+            showonscreen(resolve.data[i]);
+        }})
+        .catch((err)=>{
+            console.log(err);
+        })
+    })
     function showonscreen(obj){
         const p=document.body;
         const list=document.createElement('li');
